@@ -167,6 +167,11 @@ _import_structure = {
         "AltCLIPTextConfig",
         "AltCLIPVisionConfig",
     ],
+    "models.aria": [
+        "AriaConfig",
+        "AriaVisionConfig",
+        "AriaTextConfig",
+    ],
     "models.audio_spectrogram_transformer": [
         "ASTConfig",
         "ASTFeatureExtractor",
@@ -527,11 +532,6 @@ _import_structure = {
     "models.llava": [
         "LlavaConfig",
         "LlavaProcessor",
-    ],
-    "models.aria": [
-        "AriaConfig",
-        "AriaVisionConfig",
-        "AriaModelConfig",
     ],
     "models.llava_next": [
         "LlavaNextConfig",
@@ -1390,6 +1390,14 @@ else:
             "AltCLIPPreTrainedModel",
             "AltCLIPTextModel",
             "AltCLIPVisionModel",
+        ]
+    )
+    _import_structure["models.aria"].extend(
+        [
+            "AriaTextModel",
+            "AriaVisionModel",
+            "AriaForConditionalGeneration",
+            "AriaPreTrainedModel",
         ]
     )
     _import_structure["models.audio_spectrogram_transformer"].extend(
@@ -2563,12 +2571,6 @@ else:
         [
             "LlavaForConditionalGeneration",
             "LlavaPreTrainedModel",
-        ]
-    )
-    _import_structure["models.aria"].extend(
-        [
-            "AriaForConditionalGeneration",
-            "AriaPreTrainedModel",
         ]
     )
     _import_structure["models.llava_next"].extend(
@@ -4990,6 +4992,11 @@ if TYPE_CHECKING:
         AltCLIPTextConfig,
         AltCLIPVisionConfig,
     )
+    from .models.aria import (
+        AriaConfig,
+        AriaTextConfig,
+        AriaVisionConfig,
+    )
     from .models.audio_spectrogram_transformer import (
         ASTConfig,
         ASTFeatureExtractor,
@@ -5379,10 +5386,6 @@ if TYPE_CHECKING:
         LlavaConfig,
         LlavaProcessor,
     )
-    from .models.aria import (
-        AriaConfig,
-       
-    )
     from .models.llava_next import (
         LlavaNextConfig,
         LlavaNextProcessor,
@@ -5592,11 +5595,6 @@ if TYPE_CHECKING:
     from .models.rt_detr import (
         RTDetrConfig,
         RTDetrResNetConfig,
-    )
-    from .models.aria import (
-        AriaConfig,
-        AriaVisionConfig,
-        AriaModelConfig
     )
     from .models.rwkv import RwkvConfig
     from .models.sam import (
@@ -6277,6 +6275,13 @@ if TYPE_CHECKING:
             AltCLIPPreTrainedModel,
             AltCLIPTextModel,
             AltCLIPVisionModel,
+        )
+        from .models.aria import (
+            AriaForConditionalGeneration,
+            AriaPreTrainedModel,
+            AriaVisionModel,
+            AriaTextModel,
+            AriaForCausalLM,
         )
         from .models.audio_spectrogram_transformer import (
             ASTForAudioClassification,
@@ -7230,10 +7235,6 @@ if TYPE_CHECKING:
         from .models.llava import (
             LlavaForConditionalGeneration,
             LlavaPreTrainedModel,
-        )
-        from .models.aria import (
-            AriaForConditionalGeneration,
-            AriaPreTrainedModel,
         )
         from .models.llava_next import (
             LlavaNextForConditionalGeneration,
